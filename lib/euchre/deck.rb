@@ -3,7 +3,7 @@ require 'delegate'
 module Euchre
   class Deck < SimpleDelegator
     def initialize
-      super(Array.new(24))
+      super(Array.new(24, Card.new))
     end
   end
 end
