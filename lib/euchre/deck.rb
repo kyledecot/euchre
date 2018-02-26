@@ -3,7 +3,15 @@ require 'delegate'
 module Euchre
   class Deck < SimpleDelegator
     def initialize
-      super(Array.new(24, Card.new))
+      cards = []
+
+      Card::Rank.each do |rank|
+        Card::Suite.each do |suite|
+          cards << Card.new(rank, suite)
+        end
+      end
+
+      super(cards)
     end
   end
 end
